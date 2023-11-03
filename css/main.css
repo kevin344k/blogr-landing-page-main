@@ -1,0 +1,336 @@
+main .section-free .h2-subtitle, main .section-phones .h2-subtitle, main .section-editor .h2-subtitle, main .h2-subtitle {
+  color: hsl(208, 49%, 24%);
+  font-size: 2.8rem;
+  font-weight: 700;
+  line-height: auto;
+}
+
+main .section-free .text-paragraph, main .section-phones .text-paragraph, main .section-editor .text-paragraph, footer .list-product ul li a,
+footer .list-company ul li a,
+footer .list-connect ul li a, header nav .nav-list .list-product ul li a,
+header nav .nav-list .list-company ul li a,
+header nav .nav-list .list-connect ul li a, footer .list-product p,
+footer .list-company p,
+footer .list-connect p, header nav .nav-list .list-product p,
+header nav .nav-list .list-company p,
+header nav .nav-list .list-connect p {
+  color: hsl(208, 49%, 24%);
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 25px;
+}
+
+footer .list-product p,
+footer .list-company p,
+footer .list-connect p, header nav .nav-list .list-product p,
+header nav .nav-list .list-company p,
+header nav .nav-list .list-connect p {
+  color: hsl(0, 0%, 100%);
+  font-weight: 700;
+  margin: 12px 0px;
+}
+footer .list-product ul li,
+footer .list-company ul li,
+footer .list-connect ul li, header nav .nav-list .list-product ul li,
+header nav .nav-list .list-company ul li,
+header nav .nav-list .list-connect ul li {
+  list-style: none;
+}
+footer .list-product ul li a,
+footer .list-company ul li a,
+footer .list-connect ul li a, header nav .nav-list .list-product ul li a,
+header nav .nav-list .list-company ul li a,
+header nav .nav-list .list-connect ul li a {
+  text-decoration: none;
+  color: hsl(240, 2%, 79%);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Overpass", sans-serif;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+header {
+  width: 375px;
+  height: 490px;
+  margin: auto;
+  overflow: hidden;
+  background-image: linear-gradient(hsl(13, 100%, 72%), hsl(353, 100%, 62%));
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 16px 24px;
+  border-radius: 0px 0px 0px 30%;
+  position: relative;
+}
+header nav {
+  width: 100%;
+  position: relative;
+  z-index: 3;
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  align-items: center;
+  justify-content: space-between;
+}
+header nav .logo {
+  display: flex;
+  width: 110px;
+  height: 30px;
+  background-image: url("../images/logo.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+header nav .ico_hamburger {
+  display: flex;
+  width: 30px;
+  height: 30px;
+  background-image: url("../images/icon-hamburger.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+header nav .nav-list {
+  position: absolute;
+  width: 327px;
+  left: calc(50% - 163.5px);
+  top: 80px;
+  background-color: hsl(0, 0%, 100%);
+  padding: 12px 24px;
+  text-align: center;
+  border-radius: 6px;
+}
+header nav .nav-list .list-product,
+header nav .nav-list .list-company,
+header nav .nav-list .list-connect {
+  margin-top: 8px;
+}
+header nav .nav-list .list-product div,
+header nav .nav-list .list-company div,
+header nav .nav-list .list-connect div {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+header nav .nav-list .list-product div p,
+header nav .nav-list .list-company div p,
+header nav .nav-list .list-connect div p {
+  color: hsl(208, 49%, 24%);
+  margin-right: 24px;
+}
+header nav .nav-list .list-product div .ico-arrow,
+header nav .nav-list .list-company div .ico-arrow,
+header nav .nav-list .list-connect div .ico-arrow {
+  display: flex;
+  width: 12px;
+  height: 12px;
+  background-image: url("../images/icon-arrow-dark.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+header nav .nav-list .list-product div:hover,
+header nav .nav-list .list-company div:hover,
+header nav .nav-list .list-connect div:hover {
+  cursor: pointer;
+}
+header nav .nav-list .list-product ul,
+header nav .nav-list .list-company ul,
+header nav .nav-list .list-connect ul {
+  background-color: hsl(240, 2%, 79%);
+  border-radius: 6px;
+  margin: 8px 0px;
+}
+header nav .nav-list .list-product ul li,
+header nav .nav-list .list-company ul li,
+header nav .nav-list .list-connect ul li {
+  margin: 8px;
+}
+header nav .nav-list .list-product ul li a,
+header nav .nav-list .list-company ul li a,
+header nav .nav-list .list-connect ul li a {
+  color: hsl(207, 13%, 34%);
+  font-weight: 600;
+}
+header nav .nav-list hr {
+  color: hsl(240, 2%, 79%);
+}
+header nav .nav-list .div-but {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 24px 0px;
+}
+header nav .nav-list .div-but .but-login, header nav .nav-list .div-but .but-sign_up {
+  width: 130px;
+  padding: 10px 15px;
+  border: 1px solid hsl(0, 0%, 100%);
+  background-color: white;
+  border-radius: 20px;
+  color: hsl(208, 49%, 24%);
+  font-family: "Overpass", sans-serif;
+  font-weight: 600;
+  font-size: 1.6rem;
+}
+header nav .nav-list .div-but .but-login:hover, header nav .nav-list .div-but .but-sign_up:hover {
+  cursor: pointer;
+}
+header nav .nav-list .div-but .but-sign_up {
+  color: hsl(0, 0%, 100%);
+  background-image: linear-gradient(to right, hsl(13, 100%, 72%), hsl(353, 100%, 62%));
+}
+header .header-section--hero {
+  width: 100%;
+  text-align: center;
+  color: hsl(0, 0%, 100%);
+  font-weight: 400;
+  margin-top: 120px;
+  position: relative;
+  z-index: 2;
+}
+header .header-section--hero h1 {
+  color: hsl(0, 0%, 100%);
+  font-size: 2.8rem;
+  font-weight: 700;
+  line-height: 40px;
+  margin-bottom: 20px;
+}
+header .header-section--hero p {
+  color: hsl(0, 0%, 100%);
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 20px;
+}
+header .header-section--hero .section-hero--div_Button {
+  width: 100%;
+  padding: 40px 0px;
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  align-items: center;
+  justify-content: space-evenly;
+}
+header .header-section--hero .section-hero--div_Button .but_start {
+  width: 130px;
+  padding: 10px 15px;
+  border: 1px solid hsl(0, 0%, 100%);
+  border-radius: 20px;
+  color: hsl(353, 100%, 62%);
+  font-family: "Overpass", sans-serif;
+  font-weight: 600;
+  font-size: 1.6rem;
+}
+header .header-section--hero .section-hero--div_Button .but_learn {
+  width: 130px;
+  padding: 10px 15px;
+  border: 1px solid hsl(0, 0%, 100%);
+  border-radius: 20px;
+  color: hsl(0, 0%, 100%);
+  font-family: "Overpass", sans-serif;
+  font-weight: 600;
+  font-size: 1.6rem;
+  background: none;
+}
+header .div-pattern--img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  width: 620px;
+  height: 682px;
+  background-image: url("../images/bg-pattern-intro-mobile.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-size: auto;
+}
+
+main {
+  width: 375px;
+  height: -moz-fit-content;
+  height: fit-content;
+  text-align: center;
+  margin: 42px auto;
+}
+main .h2-subtitle {
+  margin: 70px 0;
+}
+main .section-editor {
+  padding: 0px 24px;
+}
+main .section-editor picture img {
+  width: 320px;
+}
+main .section-editor .h2-subtitle {
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+main .section-phones {
+  padding: 0px 24px;
+  padding-top: 185px;
+  background-color: hsl(237, 23%, 32%);
+  background-image: url(../images/bg-pattern-circles.svg);
+  background-size: 603px;
+  background-position: center;
+  background-position-y: -248px;
+  background-repeat: no-repeat;
+  margin-top: 280px;
+  border-radius: 0px 20% 0px 20%;
+  position: relative;
+  height: 550px;
+}
+main .section-phones .div-group_image {
+  width: 100%;
+  position: absolute;
+  top: calc(40% - 393px);
+  right: calc(50% - 187px);
+}
+main .section-phones .div-group_image img {
+  width: 375px;
+}
+main .section-phones .h2-subtitle {
+  margin-top: 40px;
+  margin-bottom: 20px;
+  color: hsl(0, 0%, 100%);
+}
+main .section-phones .text-paragraph {
+  color: hsl(0, 0%, 100%);
+}
+main .section-free {
+  padding: 0px 24px;
+  padding-top: 60px;
+}
+main .section-free picture img {
+  width: 345px;
+}
+main .section-free .h2-subtitle {
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+footer {
+  width: 375px;
+  margin: auto;
+  text-align: center;
+  background-color: hsl(240, 10%, 16%);
+  padding: 16px 24px;
+  border-radius: 0px 30% 0px 0px;
+}
+footer .footer-logo {
+  display: flex;
+  width: 110px;
+  height: 30px;
+  background-image: url("../images/logo.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  margin: 48px auto;
+}/*# sourceMappingURL=main.css.map */

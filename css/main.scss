@@ -1,0 +1,400 @@
+//# Front-end Style Guide
+
+//## Layout
+
+//The designs were created to the following widths:
+
+//- Mobile: 375px
+//- Desktop: 1440px
+
+//## Colors
+
+//### Primary
+
+$Light_red_CTA_text: hsl(356, 100%, 66%);
+$Very_light_red_CTA_hover_background: hsl(355, 100%, 74%);
+$Very_dark_blue_headings: hsl(208, 49%, 24%);
+
+//### Neutral
+
+$White_text: hsl(0, 0%, 100%);
+$Grayish_blue_footer_text: hsl(240, 2%, 79%);
+$Very_dark_grayish_blue_body_copy: hsl(207, 13%, 34%);
+$Very_dark_black_blue_footer_background: hsl(240, 10%, 16%);
+
+//### Gradient
+
+//Background gradient - Intro/CTA mobile nav:
+
+$Very_light_red: hsl(13, 100%, 72%);
+$Light_red: hsl(353, 100%, 62%);
+
+//Background gradient - body:
+
+$Very_dark_gray_blue: hsl(237, 18%, 21%);
+$Very_dark_desaturated_blue: hsl(237, 23%, 32%);
+
+//## Typography
+
+//### Body Copy
+
+$font_size: 1.6rem;
+
+//### Fonts
+$family_overpass: 'Overpass', sans-serif;
+//- Family: [Overpass](https://fonts.google.com/specimen/Overpass?preview.text_type=custom)
+//- Weights: 300, 600
+$family_ubuntu: 'Ubuntu', sans-serif;
+//- Family: [Ubuntu](https://fonts.google.com/specimen/Ubuntu?preview.text_type=custom)
+//- Weights: 400, 500, 700
+
+@mixin ico_img($w, $h, $url) {
+    display: flex;
+    width: $w;
+    height: $h;
+    background-image: url($url);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+@mixin flex($f: flex, $f-dir: row, $j-content: center) {
+    display: $f;
+    flex-direction: $f-dir;
+    align-content: center;
+    align-items: center;
+    justify-content: $j-content;
+}
+
+@mixin text($color, $size_text, $f_weight, $line_h: auto) {
+    color: $color;
+    font-size: $size_text;
+    font-weight: $f_weight;
+    line-height: $line_h;
+}
+
+@mixin butt($r, $color, $f-family, $f-w, $size) {
+    border-radius: $r;
+    color: $color;
+    font-family: $f-family;
+    font-weight: $f-w;
+    font-size: $size;
+
+}
+
+
+
+%h2_subtitle {
+    @include text($Very_dark_blue_headings, 2.8rem, 700);
+}
+
+%text-paragraph {
+    @include text($Very_dark_blue_headings, $font_size, 400, 25px);
+}
+%ul {
+    p {
+        @extend %text-paragraph;
+        color: $White_text;
+        font-weight: 700;
+        margin: 12px 0px;
+    }
+
+    ul {
+        li {
+            list-style: none;
+
+            a {
+                @extend %text-paragraph;
+                text-decoration: none;
+                color: $Grayish_blue_footer_text;
+            }
+        }
+    }
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: $family_overpass;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+header {
+    width: 375px;
+    height: 490px;
+    margin: auto;
+    overflow: hidden;
+    background-image: linear-gradient($Very_light_red, $Light_red);
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 16px 24px;
+    border-radius: 0px 0px 0px 30%;
+    position: relative;
+
+    nav {
+        width: 100%;
+        position: relative;
+       z-index: 3;
+        @include flex(flex, row, space-between);
+
+        .logo {
+
+            @include ico_img(110px, 30px, "../images/logo.svg");
+        }
+
+        .ico_hamburger {
+            @include ico_img(30px, 30px, "../images/icon-hamburger.svg");
+        }
+
+        ///nav list
+        .nav-list {
+            position: absolute;
+            width: 327px;
+            left: calc(50% - 163.5px);
+            top: 80px;
+            background-color: $White_text;
+            padding: 12px 24px;
+            text-align: center;
+            border-radius: 6px;
+            .list-product,
+            .list-company,
+            .list-connect {
+                @extend %ul;
+                margin-top: 8px;
+                div{
+                    width: 100%;
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: center;
+                    align-items: center;
+
+                    p{
+                        color:$Very_dark_blue_headings;
+                        margin-right: 24px;
+                      
+                       
+                    }
+                    .ico-arrow{
+                        @include ico_img(12px,12px ,"../images/icon-arrow-dark.svg" )
+                    }
+                    &:hover{
+                        cursor: pointer;
+                    }
+                }
+                ul{
+                    background-color: $Grayish_blue_footer_text;
+                    border-radius: 6px;
+                   margin: 8px 0px;
+                    li{
+                      margin: 8px;
+                        a{
+                            color: $Very_dark_grayish_blue_body_copy;
+                            font-weight: 600;
+                            
+                        }
+                    }
+                   // display: none;
+                    
+                }
+        
+            }
+            hr{
+                color:  $Grayish_blue_footer_text;
+            }
+            .div-but{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                margin: 24px 0px;
+                .but-login{
+                    width: 130px;
+                    padding: 10px 15px;
+                    border: 1px solid $White_text;
+                    background-color: white;
+                    @include butt(20px, $Very_dark_blue_headings, $family_overpass, 600, 1.6rem );
+                    &:hover{
+                        cursor: pointer;
+                    }
+                }
+                .but-sign_up{
+                    @extend .but-login;
+                    color: $White_text;
+                    background-image: linear-gradient(to right,$Very_light_red,$Light_red);
+                }
+            }
+
+        }
+
+    }
+
+    .header-section--hero {
+        width: 100%;
+        text-align: center;
+        color: $White_text;
+        font-weight: 400;
+        margin-top: 120px;
+        position: relative;
+        z-index: 2;
+
+        h1 {
+            @include text($White_text, 2.8rem, 700, 40px);
+            margin-bottom: 20px;
+        }
+
+        p {
+            @include text($White_text, 1.5rem, 400, 20px)
+        }
+
+        .section-hero--div_Button {
+            width: 100%;
+            padding: 40px 0px;
+            @include flex(flex, row, space-evenly);
+
+            .but_start {
+                width: 130px;
+                padding: 10px 15px;
+                border: 1px solid $White_text;
+                @include butt(20px, $Light_red, $family_overpass, 600, 1.6rem)
+            }
+
+            .but_learn {
+                width: 130px;
+                padding: 10px 15px;
+                border: 1px solid $White_text;
+                @include butt(20px, $White_text, $family_overpass, 600, 1.6rem);
+                background: none;
+            }
+        }
+    }
+
+    .div-pattern--img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        @include ico_img(620px, 682px, ("../images/bg-pattern-intro-mobile.svg"));
+        background-size: auto;
+
+    }
+}
+
+main {
+    width: 375px;
+    height: fit-content;
+    text-align: center;
+    margin: 42px auto;
+
+    .h2-subtitle {
+        margin: 70px 0;
+
+        @extend %h2_subtitle;
+    }
+
+    .section-editor {
+        padding: 0px 24px;
+
+        picture {
+
+            img {
+                width: 320px;
+            }
+        }
+
+        .h2-subtitle {
+            margin-top: 40px;
+            margin-bottom: 20px;
+            @extend %h2_subtitle;
+        }
+
+        .text-paragraph {
+            @extend %text-paragraph;
+        }
+    }
+
+    .section-phones {
+        padding: 0px 24px;
+        padding-top: 185px;
+        background-color: $Very_dark_desaturated_blue;
+        background-image: url(../images/bg-pattern-circles.svg);
+        background-size: 603px;
+        background-position: center;
+        background-position-y: -248px;
+        background-repeat: no-repeat;
+        margin-top: 280px;
+        border-radius: 0px 20% 0px 20%;
+        position: relative;
+        height: 550px;
+
+        .div-group_image {
+            width: 100%;
+            position: absolute;
+            top: calc(40% - 393px);
+            right: calc(50% - 187px);
+
+            img {
+                width: 375px;
+            }
+
+        }
+
+        .h2-subtitle {
+            margin-top: 40px;
+            margin-bottom: 20px;
+            @extend %h2_subtitle;
+            color: $White_text
+        }
+
+        .text-paragraph {
+            @extend %text-paragraph;
+            color: $White_text;
+        }
+    }
+
+    .section-free {
+        padding: 0px 24px;
+        padding-top: 60px;
+
+        picture {
+            img {
+                width: 345px;
+            }
+        }
+
+        .h2-subtitle {
+            margin-top: 40px;
+            margin-bottom: 20px;
+            @extend %h2_subtitle;
+        }
+
+        .text-paragraph {
+            @extend %text-paragraph;
+        }
+    }
+}
+
+footer {
+    width: 375px;
+    margin: auto;
+    text-align: center;
+    background-color: $Very_dark_black_blue_footer_background;
+    padding: 16px 24px;
+    border-radius: 0px 30% 0px 0px;
+
+    .footer-logo {
+        @include ico_img(110px, 30px, "../images/logo.svg");
+        margin: 48px auto;
+    }
+
+    .list-product,
+    .list-company,
+    .list-connect {
+        @extend %ul;
+
+    }
+
+
+  
+}
