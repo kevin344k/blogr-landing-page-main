@@ -1,0 +1,887 @@
+//# Front-end Style Guide
+
+//## Layout
+
+//The designs were created to the following widths:
+
+//- Mobile: 375px
+//- Desktop: 1440px
+
+//## Colors
+
+//### Primary
+
+$Light_red_CTA_text: hsl(356, 100%, 66%);
+$Very_light_red_CTA_hover_background: hsl(355, 100%, 74%);
+$Very_dark_blue_headings: hsl(208, 49%, 24%);
+
+//### Neutral
+
+$White_text: hsl(0, 0%, 100%);
+$Grayish_blue_footer_text: hsl(240, 2%, 79%);
+$Very_dark_grayish_blue_body_copy: hsl(207, 13%, 34%);
+$Very_dark_black_blue_footer_background: hsl(240, 10%, 16%);
+
+//### Gradient
+
+//Background gradient - Intro/CTA mobile nav:
+
+$Very_light_red: hsl(13, 100%, 72%);
+$Light_red: hsl(353, 100%, 62%);
+
+//Background gradient - body:
+
+$Very_dark_gray_blue: hsl(237, 18%, 21%);
+$Very_dark_desaturated_blue: hsl(237, 23%, 32%);
+
+//## Typography
+
+//### Body Copy
+
+$font_size: 1.6rem;
+
+//### Fonts
+$family_overpass: 'Overpass', sans-serif;
+//- Family: [Overpass](https://fonts.google.com/specimen/Overpass?preview.text_type=custom)
+//- Weights: 300, 600
+$family_ubuntu: 'Ubuntu', sans-serif;
+//- Family: [Ubuntu](https://fonts.google.com/specimen/Ubuntu?preview.text_type=custom)
+//- Weights: 400, 500, 700
+
+@mixin ico_img($w, $h, $url) {
+    display: flex;
+    width: $w;
+    height: $h;
+    background-image: url($url);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+@mixin flex($f: flex, $f-dir: row, $j-content: center) {
+    display: $f;
+    flex-direction: $f-dir;
+    align-content: center;
+    align-items: center;
+    justify-content: $j-content;
+}
+
+@mixin text($color, $size_text, $f_weight, $line_h: auto) {
+    color: $color;
+    font-size: $size_text;
+    font-weight: $f_weight;
+    line-height: $line_h;
+}
+
+@mixin butt($r, $color, $f-family, $f-w, $size) {
+    border-radius: $r;
+    color: $color;
+    font-family: $f-family;
+    font-weight: $f-w;
+    font-size: $size;
+
+}
+
+
+
+%h2_subtitle {
+    @include text($Very_dark_blue_headings, 2.8rem, 700);
+}
+
+%text-paragraph {
+    @include text($Very_dark_blue_headings, $font_size, 400, 25px);
+}
+
+%ul {
+    p {
+        @extend %text-paragraph;
+        color: $White_text;
+        font-weight: 700;
+
+    }
+
+    ul {
+
+        li {
+            list-style: none;
+
+            a {
+                @extend %text-paragraph;
+                text-decoration: none;
+                color: $Grayish_blue_footer_text;
+            }
+        }
+    }
+}
+
+%ul-nav {
+    background-color: #f0eeee;
+    border-radius: 6px;
+    padding: 8px 0px;
+
+    li {
+        margin-top: 8px;
+
+        a {
+            color: $Very_dark_grayish_blue_body_copy;
+            font-weight: 600;
+
+        }
+    }
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: $family_overpass;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    width: 100vw;
+    height: fit-content;
+    overflow-x: hidden;
+}
+
+header {
+    width: 100%;
+    min-width: 340px;
+    height: 490px;
+    margin: auto;
+    background-image: linear-gradient($Very_light_red, $Light_red);
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 16px 24px;
+    border-radius: 0px 0px 0px 30%;
+
+
+    nav {
+        width: 100%;
+        position: relative;
+        z-index: 3;
+        @include flex(flex, row, space-between);
+
+        .logo {
+
+            @include ico_img(110px, 30px, "../images/logo.svg");
+        }
+
+        .ico_hamburger {
+            transition: .1s ease-in;
+            @include ico_img(30px, 30px, "../images/icon-hamburger.svg");
+
+        }
+
+        .close-hamburger {
+            transition: .1s ease-in;
+            @include ico_img(30px, 30px, "../images/icon-close.svg");
+
+        }
+
+        ///nav list
+        .nav-list {
+            position: absolute;
+            display: none;
+            flex-direction: column;
+            gap: 32px;
+            width: 327px;
+            left: calc(50% - 163.5px);
+            top: 80px;
+            background-color: $White_text;
+            padding: 24px;
+            text-align: center;
+            border-radius: 6px;
+            box-shadow: 0px 0px 11px 0px gray;
+
+            .list-product,
+            .list-company,
+            .list-connect {
+                @extend %ul;
+
+
+                div {
+                    width: 280px;
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: center;
+                    text-align: end;
+                    align-items: center;
+                    gap: 12px;
+
+                    p {
+                        color: $Very_dark_blue_headings;
+
+
+
+                    }
+
+                    .ico-arrow {
+                        @include ico_img(12px, 12px, "../images/icon-arrow-dark.svg")
+                    }
+
+                    .arrow-click {
+                        transform: rotate(180deg);
+                    }
+
+                    &:hover {
+                        cursor: pointer;
+                    }
+                }
+
+                .ul-product,
+                .ul-company,
+                .ul-connect {
+                    @extend %ul-nav;
+                    display: none;
+
+                }
+
+                .show {
+
+                    display: block;
+                    transition: .3s ease-in;
+                }
+
+
+            }
+
+        }
+
+        .show {
+            display: flex;
+        }
+
+        hr {
+            color: #f0f0f0;
+        }
+
+        .div-but {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+
+            .but-login {
+                width: 130px;
+                padding: 10px 15px;
+                border: 1px solid $White_text;
+                background-color: white;
+                @include butt(20px, $Very_dark_blue_headings, $family_overpass, 600, 1.6rem);
+
+
+                &:hover {
+                    cursor: pointer;
+                    color: $White_text;
+                    background-color: $Very_light_red_CTA_hover_background
+                }
+            }
+
+            .but-sign_up {
+                @extend .but-login;
+                color: $White_text;
+                background-image: linear-gradient(to right, $Very_light_red, $Light_red);
+
+                &:hover {
+                    background-image: linear-gradient($White_text, $White_text);
+
+                    color: $Light_red;
+                    border: 1px solid $Light_red;
+                }
+            }
+        }
+
+
+    }
+
+}
+
+.header-section--hero {
+    width: 100%;
+    text-align: center;
+    color: $White_text;
+    font-weight: 400;
+    margin-top: 120px;
+    position: relative;
+    z-index: 2;
+
+    h1 {
+        @include text($White_text, 2.8rem, 700, 40px);
+        margin-bottom: 20px;
+    }
+
+    p {
+        @include text($White_text, 1.5rem, 400, 20px)
+    }
+
+    .section-hero--div_Button {
+        width: 100%;
+        padding: 40px 0px;
+        @include flex(flex, row, space-evenly);
+
+        .but_start {
+            width: 130px;
+            padding: 10px 15px;
+            border: 1px solid $White_text;
+            @include butt(20px, $Light_red, $family_overpass, 600, 1.6rem)
+        }
+
+        .but_learn {
+            width: 130px;
+            padding: 10px 15px;
+            border: 1px solid $White_text;
+            @include butt(20px, $White_text, $family_overpass, 600, 1.6rem);
+            background: none;
+        }
+    }
+}
+
+.container-pattern-header {
+    width: 100%;
+    height: 490px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    //background-color: red;
+    border-radius: 0px 0px 0px 30%;
+    overflow: hidden;
+
+    .div-pattern--img {
+
+        @include ico_img(620px, 682px, ("../images/bg-pattern-intro-mobile.svg"));
+        background-size: auto;
+
+    }
+}
+
+
+main {
+    width: 375px;
+    height: fit-content;
+    text-align: center;
+    margin: 42px auto;
+
+    .h2-subtitle {
+        margin: 70px 0;
+
+        @extend %h2_subtitle;
+    }
+
+    .section-editor {
+        padding: 0px 24px;
+
+        picture {
+
+            img {
+                width: 320px;
+            }
+        }
+
+        .h2-subtitle {
+            margin-top: 40px;
+            margin-bottom: 20px;
+            @extend %h2_subtitle;
+        }
+
+        .text-paragraph {
+            @extend %text-paragraph;
+        }
+    }
+
+    .section-phones {
+        padding: 0px 24px;
+        padding-top: 185px;
+        background-color: $Very_dark_desaturated_blue;
+        background-image: url(../images/bg-pattern-circles.svg);
+        background-size: 603px;
+        background-position: center;
+        background-position-y: -248px;
+        background-repeat: no-repeat;
+        margin-top: 280px;
+        border-radius: 0px 20% 0px 20%;
+        position: relative;
+        height: 550px;
+
+        .div-group_image {
+            width: 100%;
+            position: absolute;
+            top: calc(40% - 393px);
+            right: calc(50% - 187px);
+
+            img {
+                width: 375px;
+            }
+
+        }
+
+        .h2-subtitle {
+            margin-top: 40px;
+            margin-bottom: 20px;
+            @extend %h2_subtitle;
+            color: $White_text
+        }
+
+        .text-paragraph {
+            @extend %text-paragraph;
+            color: $White_text;
+        }
+    }
+
+    .section-free {
+        padding: 0px 24px;
+        padding-top: 60px;
+
+        picture {
+            img {
+                width: 345px;
+            }
+        }
+
+        .h2-subtitle {
+            margin-top: 40px;
+            margin-bottom: 20px;
+            @extend %h2_subtitle;
+        }
+
+        .text-paragraph {
+            @extend %text-paragraph;
+        }
+    }
+}
+
+footer {
+    width: 100%;
+    margin: auto;
+    text-align: center;
+    background-color: $Very_dark_black_blue_footer_background;
+    padding: 16px 24px;
+    border-radius: 0px 30% 0px 0px;
+
+    .footer-logo {
+        @include ico_img(110px, 30px, "../images/logo.svg");
+        margin: 48px auto;
+    }
+
+    .list-product,
+    .list-company,
+    .list-connect {
+        @extend %ul;
+
+        ul {
+            li {
+                a {
+                    &:hover {
+                        color: $White_text;
+                    }
+                }
+            }
+        }
+
+    }
+
+
+
+}
+
+@media(min-width:425px) and (max-width:768px) {
+    header {
+        width: 100vw;
+
+        nav {
+            .nav-list {
+                width: 450px;
+                left: calc(50% - 225px);
+                text-align: center;
+
+                .list-product,
+                .list-company,
+                .list-connect {
+                    div {
+                        width: 100%;
+                    }
+
+                }
+            }
+        }
+
+        .container-pattern-header {
+            width: 100%;
+            height: 490px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            //background-color: red;
+            border-radius: 0px 0px 0px 30%;
+            overflow: hidden;
+
+            .div-pattern--img {
+
+                @include ico_img(100%, 100%, ("../images/bg-pattern-intro-mobile.svg"));
+
+                background-size: auto;
+
+            }
+        }
+
+        .header-section--hero {
+            h1 {
+                font-size: 36px;
+            }
+
+            .section-hero--div_Button {
+                width: 350px;
+                margin: auto;
+
+            }
+        }
+    }
+
+
+    main {
+        width: 100%;
+
+        .section-phones {
+            height: 450px;
+
+            .div-group_image {
+                left: 0;
+            }
+
+        }
+
+    }
+
+    footer {
+        width: 100%;
+        display: grid;
+        padding-top: 40px;
+        grid-template-columns: repeat(4, 1fr);
+        border-radius: 0px 10% 0pc 0px;
+
+        .footer-logo {
+            margin-top: 0px;
+        }
+
+        p {
+            margin-bottom: 12px;
+        }
+    }
+}
+
+@media(min-width:1024px) {
+
+    %ul-desktop {
+        width: 151px;
+        position: absolute;
+        padding: 16px 36px 16px 24px;
+        background-color: $White_text;
+        text-align: left;
+        box-shadow: 0px 0px 7px 0px $Very_dark_gray_blue;
+        top: 40px;
+        left: calc(100% - 125.5px);
+
+        li {
+            a {
+                &:hover {
+                    color: $Very_dark_gray_blue;
+                }
+            }
+        }
+    }
+
+    %div-nav-list--prod-comp-conn {
+        position: relative;
+
+        div {
+            position: relative;
+
+            .ico-arrow {
+                @include ico_img(12px, 12px, "../images/icon-arrow-light.svg")
+            }
+
+            p {
+                color: $White_text;
+
+                &:hover {
+                    text-decoration: solid underline $White_text 2px;
+                }
+            }
+        }
+    }
+
+    header {
+
+        nav {
+            justify-content: start;
+            align-items: center;
+
+            .ico_hamburger {
+                display: none;
+            }
+
+            .nav-list {
+                width: 100%;
+                margin-left: 24px;
+                position: static;
+                background-color: transparent;
+                box-shadow: none;
+                align-items: center;
+                display: flex;
+                justify-content: space-between;
+                flex-direction: row;
+
+                .list-product {
+
+                    margin-right: 24px;
+
+                    @extend %div-nav-list--prod-comp-conn;
+
+                    .ul-product {
+                        @extend %ul-desktop;
+                    }
+                }
+
+                .list-company {
+                    margin-right: 24px;
+
+                    @extend %div-nav-list--prod-comp-conn;
+
+                    .ul-company {
+                        @extend %ul-desktop;
+                    }
+                }
+
+                .list-connect {
+                    @extend %div-nav-list--prod-comp-conn;
+
+                    .ul-connect {
+                        @extend %ul-desktop;
+
+                    }
+                }
+
+                hr {
+                    display: none;
+                }
+
+                .animate__fadeInDown {
+                    animation-name: none;
+                }
+
+                .nav-list--group {
+                    display: flex;
+                    justify-content: flex-start;
+
+                    div {
+                        width: fit-content;
+                    }
+                }
+
+                .div-but {
+                    flex-direction: row;
+
+                    .but-login {
+                        margin-right: 10px;
+                        background-color: transparent;
+                        color: $White_text;
+                        border: none;
+                    }
+
+                    .but-sign_up {
+                        background-image: none;
+                        background-color: $White_text;
+                        color: $Light_red;
+
+                        &:hover {
+                            background-color: $Very_light_red_CTA_hover_background;
+                            color: $White_text;
+                        }
+                    }
+
+
+                }
+            }
+
+
+        }
+
+        .header-section--hero {
+            h1 {
+                font-size: 6.3rem;
+
+                br {
+                    display: none;
+                }
+            }
+
+            p {
+                color: $Grayish_blue_footer_text;
+
+                br {
+                    display: none;
+                }
+            }
+
+            .section-hero--div_Button {
+                justify-content: center;
+                gap: 18px;
+
+                .but_start {
+                    border: 1px solid $White_text;
+
+                    &:hover {
+                        background-color: $Very_light_red_CTA_hover_background;
+                        color: $White_text;
+                        border: 1px solid $Very_light_red_CTA_hover_background
+                    }
+                }
+
+                .but_learn {
+                    &:hover {
+                        background-color: $White_text;
+                        color: $Very_light_red_CTA_hover_background;
+                    }
+                }
+            }
+
+        }
+
+        .container-pattern-header {
+            border-radius: 0px 0px 0px 30%;
+            overflow: hidden;
+
+            .div-pattern--img {
+                @include ico_img(100%, 100%, ("../images/bg-pattern-intro-desktop.svg"));
+                background-size: auto;
+            }
+        }
+    }
+
+    main {
+        width: 100%;
+        max-width: none;
+
+        .section-editor {
+            display: flex;
+            flex-direction: row-reverse;
+            padding-right: 0px;
+            position: relative;
+            overflow-x: clip;
+
+            div {
+                width: 50%;
+                text-align: left;
+            }
+
+            .div-group_image {
+
+                width: 50%;
+                height: fit-content;
+                overflow: hidden;
+
+                img {
+                    position: absolute;
+
+
+                    top: calc(100% - 550px);
+                    width: 65%;
+                    aspect-ratio: auto;
+                }
+            }
+        }
+
+        .section-phones {
+            background-position-x: -100px;
+            background-position-y: -350px;
+            height: 400px;
+            width: 100%;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-size: 700px;
+            padding-top: 0px;
+
+            .div-group_image {
+                position: static;
+                width: 50%;
+
+                img {
+                    position: absolute;
+                    width: auto;
+                    top: -40px;
+                    left: 50px;
+                }
+
+            }
+
+            div {
+                margin: auto 12px;
+                width: 50%;
+
+
+            }
+        }
+
+        .section-free {
+            margin-top: 280px;
+            padding: 0px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        
+
+            .div-group_image {
+                position: relative;
+                width: 50%;
+              height: 400px;
+        
+
+                picture {
+                   
+                    img {
+                        position: absolute;
+                        width: auto;
+                        left: -350px;
+                        top: 0;
+                        bottom: 0;
+                        margin: auto;
+                    }
+                }
+            }
+
+            div:nth-child(2) {
+                width: 50%;
+                padding: 0px 48px 0px 0px;
+                text-align: left;
+            }
+
+        }
+    }
+
+    footer {
+        margin-top: 280px;
+        width: 100%;
+        display: grid;
+        padding-top: 40px;
+        padding-left: 100px;
+        padding-right: 100px;
+        grid-template-columns: repeat(4, 1fr);
+        border-radius: 0px 10% 0pc 0px;
+
+        .footer-logo {
+            margin-top: 0px;
+        }
+
+        p {
+            margin-bottom: 12px;
+        }
+    }
+
+
+
+}
